@@ -4,11 +4,18 @@
   "type": "project",
   "license": "MIT",
   "require": {
-    "php": "^7.4"
+    "php": "^7.4",
+    "php-di/php-di": "^6.2",
+    "miladrahimi/phprouter": "4.*",
+    "twig/twig": "^3.0",
+    "composer/composer": "^1.10"
   },
   "autoload": {
     "psr-4": {
-      "TesteHibridoApp\\": "src"
-    }
+      "TesteHibridoApp\\": "src/"
+    },
+    "files": [
+      "src/Helpers/Helper.php"
+    ]
   }
 }
