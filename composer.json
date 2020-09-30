@@ -1,9 +1,14 @@
 {
-    "name": "teste/hibrido",
-    "description": "Teste para o processo seletivo na híbrido",
-    "type": "project",
-    "license": "MIT",
-    "require": {
-        "php": "^7.4"
+  "name": "teste/hibrido",
+  "description": "Teste para o processo seletivo na híbrido",
+  "type": "project",
+  "license": "MIT",
+  "require": {
+    "php": "^7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "TesteHibridoApp\\": "src"
     }
+  }
 }
