@@ -8,7 +8,10 @@
     "php-di/php-di": "^6.2",
     "miladrahimi/phprouter": "4.*",
     "twig/twig": "^3.0",
-    "composer/composer": "^1.10"
+    "composer/composer": "^1.10",
+    "doctrine/migrations": "^3.0",
+    "symfony/yaml": "^5.1",
+    "doctrine/orm": "^2.6.2"
   },
   "autoload": {
     "psr-4": {

@@ -14,6 +14,5 @@ if (!function_exists('view')) {
         $loader = new FilesystemLoader($rootDir . '/resources/views');
         $twig = new Environment($loader);
         return $twig->render($view, $data);
-
     }
 }
