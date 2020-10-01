@@ -50,11 +50,32 @@ class ClientService
         return $clients;
     }
 
-    public function saveClient(array $data)
+    public function saveClient($data)
     {
         $this->entityManager->getConnection()->beginTransaction();
         try {
             $client = new Client();
+            $client->setName($data['name']);
+            $client->setCpf($data['cpf']);
+            $client->setEmail($data['email']);
+            $client->setPhone(@$data['phone']);
+            $this->entityManager->persist($client);
+            $this->entityManager->flush();
+            $this->entityManager->getConnection()->commit();
+            return true;
+        } catch (\Exception $ex) {
+            // rollback if fail
+            $this->entityManager->getConnection()->rollBack();
+            return false;
+        }
+    }
+
+    public function updateClient($data, $id)
+    {
+
+        $this->entityManager->getConnection()->beginTransaction();
+        try {
+            $client = $this->find($id);
             $client->setName($data['name']);
             $client->setCpf($data['cpf']);
             $client->setEmail($data['email']);

@@ -19,7 +19,7 @@ class Validator
      * @param array $rules
      * @throws ValidationException
      */
-    public function validateArray(array $values, array $rules, $messages)
+    public function validateArray(array $values, array $rules, array $messages)
     {
         $translator = new Translator(new ArrayLoader(), 'en_US');
         $validatorFactory = new ValidatorFactory($translator);

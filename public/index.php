@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
-
+// start session
+session_start();
 // autoloading
 use TesteHibridoApp\Http\Controller\ClientController;
 use TesteHibridoApp\Http\RouteManager;

@@ -36,6 +36,10 @@ class RouteManager
             return $clientController->store($request);
         });
 
+        $router->post('/clients/{id}', function (ServerRequest $request, $id) use ($clientController) {
+            return $clientController->update($request, $id);
+        });
+
         $router->get('/clients/{id}/edit', function ($id) use ($clientController) {
             return $clientController->edit($id);
         });

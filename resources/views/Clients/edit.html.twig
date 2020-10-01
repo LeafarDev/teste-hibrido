@@ -9,7 +9,7 @@
         <a class="btn btn-warning" href="/clients" role="button"><i class="fa fa-backward"></i> Go Back</a>
     </div>
     <br>
-    <h1> Create a New Client</h1>
+    <h1> Update Client</h1>
     {% if (errors|length > 0) %}
         <div class="alert alert-danger">
             <strong>Whoops!</strong> Check your input and try again.<br><br>
@@ -22,7 +22,8 @@
             </ul>
         </div>
     {% endif %}
-    <form action="/clients" method="post">
+    <form action="/clients/{{ client.id }}" method="post">
+        <input type="hidden" value="{{ client.id }}">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" placeholder="Enter name" id="name" name="name"
@@ -44,7 +45,7 @@
                    value="{{ client.phone }}">
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Create Client</button>
+            <button type="submit" class="btn btn-primary">Edit Client</button>
         </div>
         <br>
     </form>
