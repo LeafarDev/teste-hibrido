@@ -65,8 +65,6 @@ class ClientService
             return true;
         } catch (\Exception $ex) {
             // rollback if fail
-            print_r($ex->getMessage());
-            exit;
             $this->entityManager->getConnection()->rollBack();
             return false;
         }
