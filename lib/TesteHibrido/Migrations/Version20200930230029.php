@@ -22,9 +22,9 @@ final class Version20200930230029 extends AbstractMigration
         $this->addSql('create table clients 
         (
             id int auto_increment,
-            name varchar(255) null,
-            email varchar(255) null,
-            cpf varchar(20) null,
+            name varchar(255) not null,
+            email varchar(255) not null,
+            cpf varchar(20) not null,
             phone varchar(20) null,
             constraint clients_pk
                 primary key (id)

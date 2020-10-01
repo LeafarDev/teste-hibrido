@@ -6,13 +6,27 @@ namespace TesteHibridoApp\Helpers;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
+if (!function_exists('rootDir')) {
+    function rootDir($view = null, $data = [])
+    {
+        $reflection = new \ReflectionClass(\Composer\Autoload\ClassLoader::class);
+        return str_replace("/vendor", "", dirname($reflection->getFileName(), 2));
+    }
+}
+
 if (!function_exists('view')) {
     function view($view = null, $data = [])
     {
-        $reflection = new \ReflectionClass(\Composer\Autoload\ClassLoader::class);
-        $rootDir = str_replace("/vendor", "", dirname($reflection->getFileName(), 2));
+        $rootDir = rootDir();
         $loader = new FilesystemLoader($rootDir . '/resources/views');
         $twig = new Environment($loader);
         return $twig->render($view, $data);
+    }
+}
+
+if (!function_exists('getEntityManager')) {
+    function getEntityManager()
+    {
+        return require_once rootDir() . "/config/orm.php";
     }
 }
