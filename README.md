@@ -45,7 +45,7 @@
 #
 ### Instalação:
 ```docker-compose up --build -d```
-#### Após o build do comando anterior estiver finalizado e tudo estiver executando corretamente, execute as instruções abaixo:
+#### Após o "build" do comando anterior estiver finalizado e tudo estiver executando corretamente, execute as instruções abaixo:
 ##### *Se estiver executando o Docker no Windows, utilize o PowerShell
 * Crie o arquivo ```migrations-db.php``` a partir do ```migrations-db-example.php``` e preencha as informações do banco de dados:
     * dbname = hibrido,
