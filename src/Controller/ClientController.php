@@ -38,7 +38,8 @@ class ClientController
 
     public function show($id)
     {
-        return "/show/" . $id;
+        $client = $this->clientService->find($id);
+        return view('Clients/show.html.twig', ['client' => $client]);
     }
 
     public function create()

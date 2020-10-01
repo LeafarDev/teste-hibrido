@@ -56,7 +56,7 @@ class ClientService
         try {
             $client = new Client();
             $client->setName($data['name']);
-            $client->setCpf($data['cpf']);
+            $client->setCpf(preg_replace("/[^0-9]/", "", $data['cpf']));
             $client->setEmail($data['email']);
             $client->setPhone(@$data['phone']);
             $this->entityManager->persist($client);
@@ -76,7 +76,7 @@ class ClientService
         try {
             $client = $this->find($id);
             $client->setName($data['name']);
-            $client->setCpf($data['cpf']);
+            $client->setCpf(preg_replace("/[^0-9]/", "", $data['cpf']));
             $client->setEmail($data['email']);
             $client->setPhone(@$data['phone']);
             $this->entityManager->persist($client);

@@ -1,0 +1,33 @@
+{% extends "/Layouts/app.html.twig" %}
+
+{% block title %}Clients{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-start">
+        <a class="btn btn-warning" href="/clients" role="button"><i class="fa fa-backward"></i> Go Back</a>
+    </div>
+    <br>
+    <h1> Client Info</h1>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Name</td>
+            <td>{{ client.name }}</td>
+        </tr>
+        <tr>
+            <td>CPF</td>
+            <td>{{ client.cpf }}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{ client.phone }}</td>
+        </tr>
+        <tr>
+            <td>Options</td>
+            <td>{{ client.name }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

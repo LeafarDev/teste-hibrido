@@ -39,8 +39,10 @@
                 <td>{{ client.email }}</td>
                 <td>{{ client.phone }}</td>
                 <td>
-
                     <form action="/clients/{{ client.id }}/delete" method="post">
+                        <a href="clients/{{ client.id }}" title="Mostrar">
+                            <i class="fa fa-eye"></i>
+                        </a>
                         <a href="clients/{{ client.id }}/edit" title="Editar">
                             <i class="fa fa-edit"></i>
                         </a>
@@ -48,7 +50,6 @@
                             <i class="fa fa-trash text-danger"></i>
                         </button>
                     </form>
-
                 </td>
             </tr>
         {% endfor %}
