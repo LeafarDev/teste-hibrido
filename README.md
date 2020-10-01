@@ -15,7 +15,7 @@
 #
 ### Arquitetura e Funcionamento Geral
 #### A arquitetura é uma variação de MVC com as seguintes características:
-* A requisição "passa" primeiro pelo arquivo `/src/index.php` onde:
+* A requisição "passa" primeiro pelo arquivo `/public/index.php` onde:
     * Inicia sessão
     * Inclui o autoload
     * Configura o PHP-DI para injeção de dependências
