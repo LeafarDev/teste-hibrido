@@ -1,0 +1,51 @@
+{% extends "/Layouts/app.html.twig" %}
+
+{% block title %}Clients{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-start">
+        <a class="btn btn-warning" href="/clients" role="button"><i class="fa fa-backward"></i> Go Back</a>
+    </div>
+    <br>
+    <h1> Create a New Client</h1>
+    {% if (errors|length > 0) %}
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> Check your input and try again.<br><br>
+            <ul>
+                {% for errorMessphones in errors %}
+                    {% for messphone in errorMessphones %}
+                        <li>{{ messphone }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <form action="/clients" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" placeholder="Enter name" id="name" name="name"
+                   value="{{ client.name }}">
+        </div>
+        <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" placeholder="Enter CPF" id="cpf" name="cpf"
+                   value="{{ client.cpf }}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email" name="email"
+                   value="{{ client.email }}">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" class="form-control" placeholder="Enter phone" id="phone" name="phone"
+                   value="{{ client.phone }}">
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+        <br>
+    </form>
+{% endblock %}

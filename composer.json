@@ -11,7 +11,8 @@
     "composer/composer": "^1.10",
     "doctrine/migrations": "^3.0",
     "symfony/yaml": "^5.1",
-    "doctrine/orm": "^2.6.2"
+    "doctrine/orm": "^2.6.2",
+    "illuminate/validation": "^8.7"
   },
   "autoload": {
     "psr-4": {

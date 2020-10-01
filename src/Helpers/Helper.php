@@ -30,3 +30,40 @@ if (!function_exists('getEntityManager')) {
         return require_once rootDir() . "/config/orm.php";
     }
 }
+if (!function_exists('sanitize')) {
+    function sanitize($value)
+    {
+        return preg_replace('/[^\d]/', '', $value);
+    }
+}
+
+
+if (!function_exists('validateCpf')) {
+    function validateCpf($cpf)
+    {
+        $cpf = sanitize($cpf);
+        if (mb_strlen($cpf) != 11 || preg_match("/^{$cpf[0]}{11}$/", $cpf)) {
+            return false;
+        }
+
+        for (
+            $s = 10, $n = 0, $i = 0; $s >= 2; $n += $cpf[$i++] * $s--
+        ) {
+        }
+
+        if ($cpf[9] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
+            return false;
+        }
+
+        for (
+            $s = 11, $n = 0, $i = 0; $s >= 2; $n += $cpf[$i++] * $s--
+        ) {
+        }
+
+        if ($cpf[10] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
+            return false;
+        }
+
+        return true;
+    }
+}

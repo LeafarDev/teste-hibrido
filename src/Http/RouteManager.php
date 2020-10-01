@@ -7,6 +7,7 @@ use DI\Container;
 use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
 use MiladRahimi\PhpRouter\Router;
 use Zend\Diactoros\Response\HtmlResponse;
+use Zend\Diactoros\ServerRequest;
 
 class RouteManager
 {
@@ -23,9 +24,22 @@ class RouteManager
         $router->get('/clients', function () use ($clientController) {
             return $clientController->index();
         });
+
         $router->get('/clients/{id}', function ($id) use ($clientController) {
             return $clientController->show($id);
         });
+        $router->get('/clients/create', function () use ($clientController) {
+            return $clientController->create();
+        });
+
+        $router->post('/clients', function (ServerRequest $request) use ($clientController) {
+            return $clientController->store($request);
+        });
+
+        $router->get('/clients/{id}/edit', function ($id) use ($clientController) {
+            return $clientController->edit($id);
+        });
+
         try {
             $router->dispatch();
         } catch (RouteNotFoundException $e) {

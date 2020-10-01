@@ -5,5 +5,50 @@
     {{ parent() }}
 {% endblock %}
 {% block content %}
+    {% if(success) %}
+        <div class="alert alert-success" role="alert">
+            {{ success }}
+        </div>
+    {% endif %}
+    {% if(failure) %}
+        <div class="alert alert-warning" role="alert">
+            {{ failure }}
+        </div>
+    {% endif %}
+    <div class="d-flex justify-content-end">
+        <a class="btn btn-primary" href="clients/create" role="button"><i class="fa fa-plus"></i> Add
+            Client</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Cpf</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <th scope="row">{{ client.id }}</th>
+                <td>{{ client.name }}</td>
+                <td>{{ client.cpf }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.phone }}</td>
+                <td>
+                    <a href="clients/{{ client.id }}/edit" class="btn btn-primary" title="Editar">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a class="btn btn-danger" title="Excluir">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
 
+        </tbody>
+    </table>
 {% endblock %}
