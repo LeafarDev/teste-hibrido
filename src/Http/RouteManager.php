@@ -17,8 +17,8 @@ class RouteManager
         $router = new Router();
 
 
-        $router->get('/', function () {
-            return '<p>This is homepage!</p>';
+        $router->get('/', function () use ($clientController) {
+            return $clientController->index();
         });
 
         $router->get('/clients', function () use ($clientController) {
