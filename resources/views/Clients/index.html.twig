@@ -39,12 +39,16 @@
                 <td>{{ client.email }}</td>
                 <td>{{ client.phone }}</td>
                 <td>
-                    <a href="clients/{{ client.id }}/edit" class="btn btn-primary" title="Editar">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                    <a class="btn btn-danger" title="Excluir">
-                        <i class="fa fa-trash"></i>
-                    </a>
+
+                    <form action="/clients/{{ client.id }}/delete" method="post">
+                        <a href="clients/{{ client.id }}/edit" title="Editar">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <button class="btn btn-link " title="Excluir" type="submit">
+                            <i class="fa fa-trash text-danger"></i>
+                        </button>
+                    </form>
+
                 </td>
             </tr>
         {% endfor %}

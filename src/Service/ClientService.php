@@ -72,7 +72,6 @@ class ClientService
 
     public function updateClient($data, $id)
     {
-
         $this->entityManager->getConnection()->beginTransaction();
         try {
             $client = $this->find($id);
@@ -86,6 +85,21 @@ class ClientService
             return true;
         } catch (\Exception $ex) {
             // rollback if fail
+            $this->entityManager->getConnection()->rollBack();
+            return false;
+        }
+    }
+
+    public function deleteClient($id)
+    {
+        $this->entityManager->getConnection()->beginTransaction();
+        try {
+            $client = $this->find($id);
+            $this->entityManager->remove($client);
+            $this->entityManager->flush();
+            $this->entityManager->getConnection()->commit();
+            return true;
+        } catch (\Exception $ex) {
             $this->entityManager->getConnection()->rollBack();
             return false;
         }

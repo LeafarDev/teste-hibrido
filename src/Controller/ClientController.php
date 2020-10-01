@@ -36,6 +36,11 @@ class ClientController
         return view('Clients/index.html.twig', ['clients' => $this->clientService->getAll(), 'success' => $success, 'failure' => $failure]);
     }
 
+    public function show($id)
+    {
+        return "/show/" . $id;
+    }
+
     public function create()
     {
         return view('Clients/create.html.twig');
@@ -144,8 +149,14 @@ class ClientController
         }
     }
 
-    public function show($id)
+    public function destroy($id)
     {
-        return "/show/" . $id;
+        $result = $this->clientService->deleteClient($id);
+        if ($result) {
+            FlashMessage::set('success', 'Client deleted successfully');
+        } else {
+            FlashMessage::set('failure', "Could not remove client. Try again later.");
+        }
+        header("Location:/clients");
     }
 }

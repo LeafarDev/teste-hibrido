@@ -40,6 +40,10 @@ class RouteManager
             return $clientController->update($request, $id);
         });
 
+        $router->post('/clients/{id}/delete', function ($id) use ($clientController) {
+            return $clientController->destroy($id);
+        });
+
         $router->get('/clients/{id}/edit', function ($id) use ($clientController) {
             return $clientController->edit($id);
         });
