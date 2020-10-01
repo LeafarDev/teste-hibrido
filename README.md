@@ -31,17 +31,17 @@
 * O ```TesteHibridoApp\Controller\ClientController``` tem as seguintes atribuições:
     * Validar a entrada de dados do usuário
     * Invocar a camada de exibição de dados em ```/resources/views```
-    * Invocar as implementações de regra de negócio em ```TesteHibridoApp\Service\ClientService```
+    * Invocar as implementações de regras de negócio em ```TesteHibridoApp\Service\ClientService```
 * O ```TesteHibridoApp\Service\ClientService```:
     * Possui as implementações como "create", "update", "find", etc.
     * Gera o log de ações como o "create" e também de erros
-    * Para fazer a persistência de dados, ele utiliza ```Doctrine\ORM\EntityManager``` que representa os dados do banco através da classe ```TesteHibridoApp\Model\Client```
+    * Para fazer a persistência de dados, ele utiliza ```Doctrine\ORM\EntityManager```que representa os dados do banco através da classe ```TesteHibridoApp\Model\Client```
 * Em ```/resources/views``` há os arquivos responsáveis por gerar o HTML da aplicação
 * O arquivo de log fica em ```/logs``` 
-* O ```Doctrine\ORM\EntityManager``` e a bilioteca ```doctrine/migrations ``` dependem do arquivo de configuração ```migrations-db.php```
+* O ```Doctrine\ORM\EntityManager``` e a bilioteca ```doctrine/migrations``` dependem do arquivo de configuração ```migrations-db.php```
 #
 ### Dependencias:
-#### Tenha instalado o [Docker](https://docs.docker.com/engine/install/) e o [Docker Compose](https://docs.docker.com/compose/install/)
+#### Tenha instalado o [Docker](https://docs.docker.com/engine/install/) e o [Docker Compose](https://docs.docker.com/compose/install/) na sua máquina
 #
 ### Instalação:
 ```docker-compose up --build -d```
