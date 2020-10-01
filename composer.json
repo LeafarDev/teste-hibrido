@@ -12,7 +12,8 @@
     "doctrine/migrations": "^3.0",
     "symfony/yaml": "^5.1",
     "doctrine/orm": "^2.6.2",
-    "illuminate/validation": "^8.7"
+    "illuminate/validation": "^8.7",
+    "monolog/monolog": "^2.1"
   },
   "autoload": {
     "psr-4": {

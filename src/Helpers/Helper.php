@@ -7,7 +7,7 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 if (!function_exists('rootDir')) {
-    function rootDir($view = null, $data = [])
+    function rootDir()
     {
         $reflection = new \ReflectionClass(\Composer\Autoload\ClassLoader::class);
         return str_replace("/vendor", "", dirname($reflection->getFileName(), 2));

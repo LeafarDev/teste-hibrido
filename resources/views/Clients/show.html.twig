@@ -26,7 +26,15 @@
         </tr>
         <tr>
             <td>Options</td>
-            <td>{{ client.name }}</td>
+            <td>
+                <form action="/clients/{{ client.id }}/delete" method="post">
+                    <a href="/clients/{{ client.id }}/edit" title="Editar">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <button class="btn btn-link " title="Excluir" type="submit">
+                        <i class="fa fa-trash text-danger"></i>
+                    </button>
+                </form></td>
         </tr>
         </tbody>
     </table>
